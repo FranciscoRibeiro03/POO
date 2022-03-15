@@ -22,5 +22,6 @@ public class Game {
             guess = input.nextInt();
         }
         System.out.println("You got it! The number was " + randomNumber);
+        input.close();
     }
 }
