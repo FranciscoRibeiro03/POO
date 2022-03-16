@@ -4,13 +4,21 @@ import java.util.Scanner;
 
 public class Exer2 {
 	public static void main(String[] args) {
-		double celcius, fahrenheit;
+		double celcius = -300;
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Insira temperatura em ºC: ");
-		celcius = sc.nextDouble();
+		while (celcius < -272.15) {
+			System.out.print("Introduz a temperatura em ºC: ");
+			if (sc.hasNextDouble()) {
+				celcius = sc.nextDouble();
+				if (celcius < -272.15) System.out.println("A temperatura nunca pode ser inferior a -272.15 ºC!");
+			} else {
+				System.out.println("Tens de introduzir um número!");
+				sc.next();
+			}
+		}
 
-		fahrenheit = 1.8 * celcius + 32;
+		double fahrenheit = 1.8 * celcius + 32;
 
 		System.out.println("A temperatura em ºF é " + fahrenheit);
 		sc.close();
