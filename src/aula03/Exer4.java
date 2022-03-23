@@ -4,31 +4,32 @@ import java.util.Scanner;
 
 public class Exer4 {
 	public static void main(String[] args) {
-		double first, sum = 0, max, min, temp, media;
-		int index = 1;
-
 		Scanner sc = new Scanner(System.in);
 
-		first = Util.getDouble("Introduza um número inteiro: ", sc);
-		max = first;
-		min = first;
-		sum += first;
+		double first = Util.getDouble("Introduza um número inteiro: ", sc);
+		double max = first;
+		double min = first;
+		double sum = first;
+		double count = 1;
+
+		double temp;
 
 		do {
 			temp = Util.getDouble("Introduza um número inteiro: ", sc);
 
-			if (temp > max)
-				max = temp;
-			if (temp < min)
-				min = temp;
-			sum += temp;
+			if (temp > max) max = temp;
+			else if (temp < min) min = temp;
 
-			index++;
+			sum += temp;
+			count++;
 		} while (first != temp);
 
-		media = sum / index;
+		double media = sum / count;
 
-		System.out.printf("Máximo: %.2f\nMínimo: %.2f\nMédia: %.2f\nNúmero de elementos: %d\n", max, min, media, index);
+		System.out.println(String.format("Máximo: %.2f", max));
+		System.out.println(String.format("Mínimo: %.2f", min));
+		System.out.println(String.format("Média: %.2f", media));
+		System.out.println(String.format("Número total de elementos lidos: %.2f", count));
 		sc.close();
 	}
 }

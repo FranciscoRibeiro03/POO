@@ -4,26 +4,31 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Exer7 {
-	public static void main(String[] args) {
-		int n, attempts = 0, randomNumber;
 
+	public static void main(String[] args) {
+		int randomNumber = new Random().nextInt(100) + 1;
+		
 		Scanner sc = new Scanner(System.in);
-		randomNumber = new Random().nextInt(100) + 1;
+
+		int attempts = 0;
+		String answer;
 
 		do {
-			n = Util.getInt("Introduza um número: ", sc, 0, 100);
+
+			int guess = Util.getInt("Introduza um número entre 0 e 100: ", sc, 0, 100);
 			attempts++;
 
-			if (n > randomNumber)
-				System.out.println("O número secreto é menor do que o número introduzido!");
-			else
-				System.out.println("O número secreto é maior do que o número introduzido!");
-		} while (n != randomNumber);
+			if (guess == randomNumber) break;
+			else if (guess > randomNumber) System.out.println("O número secreto é menor do que o número introduzido!");
+			else System.out.println("O número secreto é maior do que o número introduzido!");
 
-		System.out.println("O número secreto é " + randomNumber + "!");
-		System.out.println("Número de tentativas: " + attempts);
+			answer = Util.getString("Deseja continuar? Escreva (S)im para continuar, ou outra coisa para sair: ", sc).toLowerCase();
 
-		// Código do pretende continuar, deveras confuso oq é suposto fazer aqui
+		} while (answer.equals("s") || answer.equals("sim"));
+
+		System.out.println("O número secreto era " + randomNumber + "!");
+		System.out.println("Tentativas: " + attempts);
+
 		sc.close();
 	}
 }

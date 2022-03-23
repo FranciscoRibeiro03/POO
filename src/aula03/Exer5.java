@@ -10,14 +10,14 @@ public class Exer5 {
 		Scanner sc = new Scanner(System.in);
 
 		do {
+
 			montante = Util.getDouble("Montante inicial: ", sc, 0);
 
-			if (montante % 1000 != 0)
-				System.out.println("Indique um valor múltiplo de 1000!");
+			if (montante % 1000 != 0) System.out.println("Indique um valor múltiplo de 1000!");
 
 		} while (montante % 1000 != 0);
 
-		taxa = Util.getDouble("Indique a taxa de juro mensal: ", sc, 0, 5);
+		taxa = Util.getDouble("Indique a taxa de juro mensal (%): ", sc, 0, 5);
 
 		for (int i = 1; i <= months; i++) {
 			montante += montante * (taxa / 100);

@@ -5,18 +5,8 @@ import java.util.Scanner;
 public class Util {
 
 	public static String getString(String message, Scanner sc) {
-		while (true) {
-			System.out.print(message);
-
-			if (sc.hasNext()) {
-				String value = sc.next();
-
-				return value;
-			} else {
-				System.out.println("Introduza um número válido!");
-				sc.next();
-			}
-		}
+		System.out.print(message);
+		return sc.next();
 	}
 
 	public static double getDouble(String message, Scanner sc, double min, double max) {
@@ -28,13 +18,13 @@ public class Util {
 
 				if (value >= min && value <= max)
 					return value;
-				else if (min != Double.MIN_VALUE && max != Double.MAX_VALUE) {
+				else if (min != Double.MIN_VALUE && max != Double.MAX_VALUE)
 					System.out.println("Valor inválido! Introduza um valor entre " + min + " e " + max + ".");
-				} else if (min != Double.MIN_VALUE) {
+				else if (min != Double.MIN_VALUE)
 					System.out.println("Valor inválido! Introduza um valor superior a " + min + ".");
-				} else {
+				else
 					System.out.println("Valor inválido!");
-				}
+
 			} else {
 				System.out.println("Introduza um número válido!");
 				sc.next();
@@ -59,13 +49,13 @@ public class Util {
 
 				if (value >= min && value <= max)
 					return value;
-				else if (min != Integer.MIN_VALUE && max != Integer.MAX_VALUE) {
+				else if (min != Integer.MIN_VALUE && max != Integer.MAX_VALUE)
 					System.out.println("Valor inválido! Introduza um valor entre " + min + " e " + max + ".");
-				} else if (min != Integer.MIN_VALUE) {
+				else if (min != Integer.MIN_VALUE)
 					System.out.println("Valor inválido! Introduza um valor superior a " + min + ".");
-				} else {
+				else
 					System.out.println("Valor inválido!");
-				}
+
 			} else {
 				System.out.println("Introduza um número válido!");
 				sc.next();
