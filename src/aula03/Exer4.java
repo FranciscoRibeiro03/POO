@@ -10,7 +10,7 @@ public class Exer4 {
 		double max = first;
 		double min = first;
 		double sum = first;
-		double count = 1;
+		int count = 1;
 
 		double temp;
 
@@ -29,7 +29,7 @@ public class Exer4 {
 		System.out.println(String.format("Máximo: %.2f", max));
 		System.out.println(String.format("Mínimo: %.2f", min));
 		System.out.println(String.format("Média: %.2f", media));
-		System.out.println(String.format("Número total de elementos lidos: %.2f", count));
+		System.out.println(String.format("Número total de elementos lidos: %d", count));
 		sc.close();
 	}
 }
