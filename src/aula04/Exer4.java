@@ -26,9 +26,9 @@ public class Exer4 {
 
     public static int[] readValues() {
         Scanner sc = new Scanner(System.in);
-        int month = Util.getInt("Introduz o mês: ", sc);
+        int month = Util.getInt("Introduz o mês: ", sc, 1, 12);
         int year = Util.getInt("Introduz o ano: ", sc);
-        int weekDay = Util.getInt("Introduz o dia da semana: ", sc);
+        int weekDay = Util.getInt("Introduz o dia da semana: ", sc, 1, 7);
         sc.close();
         return new int[] { month, year, weekDay };
     }
@@ -47,6 +47,9 @@ public class Exer4 {
     }
 
     public static void drawCalendar(int month, int year, int weekDay) {
+
+        if (weekDay == 7) weekDay = 0;
+
 		int days = numberOfDaysInMonth(month, year);
 		String monthName = getMonthName(month);
 
