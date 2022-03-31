@@ -11,16 +11,17 @@ public class Exer3 {
         sc.close();
     }
 
-    public static String createAcronym(String s) {
-        if (s.length() < 3) return s;
+    public static String createAcronym(String str) {
         String acronym = "";
+        String[] words = str.split(" ");
 
-        for (int i = 0; i < s.length(); i++) {
-            if (Character.isWhitespace(s.charAt(i))) continue;
-            if (Character.isUpperCase(s.charAt(i))) acronym += s.charAt(i);
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() < 3) continue;
+
+            acronym += words[i].charAt(0);
         }
 
-        return acronym;
+        return acronym.toUpperCase();
     }
     
 }
