@@ -11,7 +11,7 @@ public class Calendar {
 		this.weekDay = weekDay;
 	}
 
-	public int getYear() {
+	public int year() {
 		return this.year;
 	}
 

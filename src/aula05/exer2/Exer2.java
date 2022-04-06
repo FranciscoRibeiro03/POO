@@ -24,7 +24,7 @@ public class Exer2 {
 					int weekDay = Util.getInt("Introduza o dia em que começa o ano (1-Domingo, 7-Sábado): ", sc, 1, 7);
 
 					calendar = new Calendar(year, weekDay);
-					System.out.println("Calendar criado: " + year);
+					System.out.println("Calendário criado: " + year);
 					break;
 
 				case 2:
