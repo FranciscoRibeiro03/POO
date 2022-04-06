@@ -15,7 +15,7 @@ public class Date {
 		}
 	}
 
-	public boolean validMonth(int month) {
+	public static boolean validMonth(int month) {
 		return month >= 1 && month <= 12;
 	}
 
@@ -35,7 +35,7 @@ public class Date {
 		return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
 	}
 
-	public boolean valid(int day, int month, int year) {
+	public static boolean valid(int day, int month, int year) {
 		return validMonth(month) && day >= 1 && day <= monthDays(month, year);
 	}
 
