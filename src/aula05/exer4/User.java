@@ -15,19 +15,19 @@ public class User {
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public int getnMec() {
-		return nMec;
+		return this.nMec;
 	}
 
 	public String getCourse() {
-		return course;
+		return this.course;
 	}
 
 	public ArrayList<Integer> getBooks() {
-		return books;
+		return this.books;
 	}
 
 	public void setName(String name) {

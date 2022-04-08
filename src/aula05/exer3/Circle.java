@@ -4,11 +4,8 @@ public class Circle {
 	private double radius;
 
 	public Circle(double radius) {
-		if (!validRadius(radius)) {
-			throw new IllegalArgumentException("Radius cannot be negative.");
-		}
-
-		this.radius = radius;
+		if (validateRadius(radius))
+			this.radius = radius;
 	}
 
 	public double getRadius() {
@@ -16,15 +13,14 @@ public class Circle {
 	}
 
 	public void setRadius(double radius) {
-		if (!validRadius(radius)) {
-			throw new IllegalArgumentException("Radius cannot be negative.");
-		}
-
-		this.radius = radius;
+		if (validateRadius(radius))
+			this.radius = radius;
 	}
 
-	public boolean equals(Circle circle) {
-		return this.radius == circle.getRadius();
+	public boolean equals(Object obj) {
+		if (getClass() != obj.getClass()) return false;
+		Circle circ = (Circle) obj;
+		return this.radius == circ.getRadius();
 	}
 
 	public double getArea() {
@@ -39,7 +35,8 @@ public class Circle {
 		return "Circle with radius " + this.radius;
 	}
 
-	private boolean validRadius(double radius) {
-		return radius >= 0;
+	private boolean validateRadius(double radius) {
+		if (radius < 0) throw new IllegalArgumentException("Radius cannot be negative.");
+		return true;
 	}
 }

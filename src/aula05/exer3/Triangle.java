@@ -6,17 +6,11 @@ public class Triangle {
 	private double side3;
 
 	public Triangle(double side1, double side2, double side3) {
-		if (!validSide(side1) || !validSide(side2) || !validSide(side3)) {
-			throw new IllegalArgumentException("Neither side can be negative");
+		if (validSide(side1) && validSide(side2) && validSide(side3) && validTriangle(side1, side2, side3)) {
+			this.side1 = side1;
+			this.side2 = side2;
+			this.side3 = side3;
 		}
-
-		if (!validTriangle(side1, side2, side3)) {
-			throw new IllegalArgumentException("Triangle cannot be formed. Does not respect triangle inequality.");
-		}
-
-		this.side1 = side1;
-		this.side2 = side2;
-		this.side3 = side3;
 	}
 
 	public double getSide1() {
@@ -32,42 +26,23 @@ public class Triangle {
 	}
 
 	public void setSide1(double side1) {
-		if (!validSide(side1)) {
-			throw new IllegalArgumentException("Side cannot be negative.");
-		}
-
-		if (!validTriangle(side1, this.side2, this.side3)) {
-			throw new IllegalArgumentException("Triangle cannot be formed. Does not respect triangle inequality.");
-		}
-
-		this.side1 = side1;
+		if (validSide(side1) && validTriangle(side1, this.side2, this.side3))
+			this.side1 = side1;
 	}
 
 	public void setSide2(double side2) {
-		if (!validSide(side2)) {
-			throw new IllegalArgumentException("Side cannot be negative.");
-		}
-
-		if (!validTriangle(this.side1, side2, this.side3)) {
-			throw new IllegalArgumentException("Triangle cannot be formed. Does not respect triangle inequality.");
-		}
-
-		this.side2 = side2;
+		if (validSide(side2) && validTriangle(this.side1, side2, this.side3))
+			this.side2 = side2;
 	}
 
 	public void setSide3(double side3) {
-		if (!validSide(side3)) {
-			throw new IllegalArgumentException("Side cannot be negative.");
-		}
-
-		if (!validTriangle(this.side1, this.side2, side3)) {
-			throw new IllegalArgumentException("Triangle cannot be formed. Does not respect triangle inequality.");
-		}
-
-		this.side3 = side3;
+		if (validSide(side3) && validTriangle(this.side1, this.side2, side3))
+			this.side3 = side3;
 	}
 
-	public boolean equals(Triangle triangle) {
+	public boolean equals(Object obj) {
+		if (getClass() != obj.getClass()) return false;
+		Triangle triangle = (Triangle) obj;
 		return this.side1 == triangle.getSide1() && this.side2 == triangle.getSide2() && this.side3 == triangle.getSide3();
 	}
 
@@ -85,10 +60,13 @@ public class Triangle {
 	}
 
 	private boolean validSide(double side) {
-		return side >= 0;
+		if (side < 0) throw new IllegalArgumentException("Side cannot be negative.");
+		return true;
 	}
 
 	private boolean validTriangle(double side1, double side2, double side3) {
-		return (side1 + side2 > side3) && (side1 + side3 > side2) && (side2 + side3 > side1);
+		boolean triangleInequality = (side1 + side2 > side3) && (side1 + side3 > side2) && (side2 + side3 > side1);
+		if (!triangleInequality) throw new IllegalArgumentException("Triangle cannot be formed. Does not respect triangle inequality.");
+		return true;
 	}
 }

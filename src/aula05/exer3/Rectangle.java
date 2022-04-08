@@ -5,12 +5,8 @@ public class Rectangle {
 	private double height;
 
 	public Rectangle(double width, double height) {
-		if (!validWidth(width) || !validHeight(height)) {
-			throw new IllegalArgumentException("Width or height cannot be negative.");
-		}
-
-		this.width = width;
-		this.height = height;
+		if (validateWidth(width)) this.width = width;
+		if (validateHeight(height)) this.height = height;
 	}
 
 	public double getWidth() {
@@ -22,23 +18,19 @@ public class Rectangle {
 	}
 
 	public void setWidth(double width) {
-		if (!validWidth(width)) {
-			throw new IllegalArgumentException("Width cannot be negative.");
-		}
-
-		this.width = width;
+		if (validateWidth(width))
+			this.width = width;
 	}
 
 	public void setHeight(double height) {
-		if (!validHeight(height)) {
-			throw new IllegalArgumentException("Height cannot be negative.");
-		}
-
-		this.height = height;
+		if (validateHeight(height)) 
+			this.height = height;
 	}
 
-	public boolean equals(Rectangle rectangle) {
-		return this.width == rectangle.getWidth() && this.height == rectangle.getHeight();
+	public boolean equals(Object obj) {
+		if (getClass() != obj.getClass()) return false;
+		Rectangle rect = (Rectangle) obj;
+		return this.width == rect.getWidth() && this.height == rect.getHeight();
 	}
 
 	public double getArea() {
@@ -53,11 +45,13 @@ public class Rectangle {
 		return "Rectangle with width " + this.width + " and height " + this.height;
 	}
 
-	private boolean validWidth(double width) {
-		return width >= 0;
+	private boolean validateWidth(double width) {
+		if (width < 0) throw new IllegalArgumentException("Width cannot be negative.");
+		return true;
 	}
 
-	private boolean validHeight(double height) {
-		return height >= 0;
+	private boolean validateHeight(double height) {
+		if (height < 0) throw new IllegalArgumentException("Height cannot be negative.");
+		return true;
 	}
 }
