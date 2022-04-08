@@ -84,9 +84,7 @@ public class Exer3 {
 					double side11 = Util.getDouble("Introduza o lado 1: ", sc);
 					double side22 = Util.getDouble("Introduza o lado 2: ", sc);
 					double side33 = Util.getDouble("Introduza o lado 3: ", sc);
-					triangle.setSide1(side11);
-					triangle.setSide2(side22);
-					triangle.setSide3(side33);
+					triangle.setSides(side11, side22, side33);
 					System.out.println("Triangle atual: " + triangle.toString());
 					break;
 

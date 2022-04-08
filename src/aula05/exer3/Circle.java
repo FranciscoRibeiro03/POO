@@ -4,8 +4,7 @@ public class Circle {
 	private double radius;
 
 	public Circle(double radius) {
-		if (validateRadius(radius))
-			this.radius = radius;
+		if (validateRadius(radius)) this.radius = radius;
 	}
 
 	public double getRadius() {
@@ -13,14 +12,17 @@ public class Circle {
 	}
 
 	public void setRadius(double radius) {
-		if (validateRadius(radius))
-			this.radius = radius;
+		if (validateRadius(radius)) this.radius = radius;
 	}
 
+	@Override
 	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
-		Circle circ = (Circle) obj;
-		return this.radius == circ.getRadius();
+
+		Circle circle = (Circle) obj;
+		return this.radius == circle.radius;
 	}
 
 	public double getArea() {
@@ -31,6 +33,7 @@ public class Circle {
 		return 2 * Math.PI * radius;
 	}
 
+	@Override
 	public String toString() {
 		return "Circle with radius " + this.radius;
 	}

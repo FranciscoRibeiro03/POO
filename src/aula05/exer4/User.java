@@ -62,6 +62,7 @@ public class User {
 		return false;
 	}
 
+	@Override
 	public String toString() {
 		return "Aluno: " + this.nMec + "; " + this.name + "; " + this.course;
 	}

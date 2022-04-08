@@ -11,7 +11,7 @@ public class Calendar {
 		this.weekDay = weekDay;
 	}
 
-	public int year() {
+	public int getYear() {
 		return this.year;
 	}
 
@@ -67,6 +67,7 @@ public class Calendar {
 		}
 	}
 
+	@Override
 	public String toString() {
 		for (int i = 1; i <= 12; i++) {
 			printMonth(i);

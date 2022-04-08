@@ -25,25 +25,22 @@ public class Triangle {
 		return this.side3;
 	}
 
-	public void setSide1(double side1) {
-		if (validSide(side1) && validTriangle(side1, this.side2, this.side3))
+	public void setSides(double side1, double side2, double side3) {
+		if (validSide(side1) && validSide(side2) && validSide(side3) && validTriangle(side1, side2, side3)) {
 			this.side1 = side1;
-	}
-
-	public void setSide2(double side2) {
-		if (validSide(side2) && validTriangle(this.side1, side2, this.side3))
 			this.side2 = side2;
-	}
-
-	public void setSide3(double side3) {
-		if (validSide(side3) && validTriangle(this.side1, this.side2, side3))
 			this.side3 = side3;
+		}
 	}
 
+	@Override
 	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (obj == null) return false;
 		if (getClass() != obj.getClass()) return false;
+
 		Triangle triangle = (Triangle) obj;
-		return this.side1 == triangle.getSide1() && this.side2 == triangle.getSide2() && this.side3 == triangle.getSide3();
+		return this.side1 == triangle.side1 && this.side2 == triangle.side2 && this.side3 == triangle.side3;
 	}
 
 	public double getArea() {
@@ -55,12 +52,13 @@ public class Triangle {
 		return this.side1 + this.side2 + this.side3;
 	}
 
+	@Override
 	public String toString() {
 		return "Triangle with sides " + this.side1 + ", " + this.side2 + ", " + this.side3;
 	}
 
 	private boolean validSide(double side) {
-		if (side < 0) throw new IllegalArgumentException("Side cannot be negative.");
+		if (side <= 0) throw new IllegalArgumentException("Side cannot be negative.");
 		return true;
 	}
 

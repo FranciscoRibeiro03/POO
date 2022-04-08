@@ -48,6 +48,7 @@ public class Book {
 		this.loaned = loaned;
 	}
 
+	@Override
 	public String toString() {
 		return "Livro " + this.id + "; " + this.title + "; " + this.typeLoan;
 	}
