@@ -6,7 +6,7 @@ import aula05.Util;
 public class Exer2 {
 	public static void main(String[] args) {
 		int input;
-		Calendar calendar = new Calendar(2000, 1);
+		Calendar calendar = null;
 		Scanner sc = new Scanner(System.in);
 
 		do {
@@ -28,17 +28,29 @@ public class Exer2 {
 					break;
 
 				case 2:
+					if (calendar == null) {
+						System.out.println("Calendário não criado.");
+						break;
+					}
+
 					int month = Util.getInt("Introduza o mês: ", sc, 1, 12);
 					calendar.printMonth(month);
 					break;
 
 				case 3:
+					if (calendar == null) {
+						System.out.println("Calendário não criado.");
+						break;
+					}
+
 					calendar.toString();
 					break;
 
 				case 0:
 					break;
 			}
+
+			System.out.println();
 		} while (input != 0);
 	}
 }

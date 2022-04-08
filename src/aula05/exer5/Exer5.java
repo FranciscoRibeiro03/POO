@@ -122,6 +122,7 @@ public class Exer5 {
 					break;
 			}
 
+			System.out.println();
 		} while (input != 8);
 	}
 

@@ -6,7 +6,7 @@ import aula05.Util;
 public class Exer1 {
 	public static void main(String[] args) {
 		int input;
-		Date date = new Date(1, 1, 2000);
+		Date date = null;
 		Scanner sc = new Scanner(System.in);
 
 		do {
@@ -30,16 +30,31 @@ public class Exer1 {
 					break;
 
 				case 2:
+					if (date == null) {
+						System.out.println("Data não criada.");
+						break;
+					}
+					
 					System.out.println("Data atual: " + date.toString());
 					break;
 
 				case 3:
+					if (date == null) {
+						System.out.println("Data não criada.");
+						break;
+					}
+
 					int daysIn = Util.getInt("Introduza o número de dias: ", sc);
 					date.increment(daysIn);
 					System.out.println("Data incrementada: " + date);
 					break;
 
 				case 4:
+					if (date == null) {
+						System.out.println("Data não criada.");
+						break;
+					}
+
 					int daysDe = Util.getInt("Introduza o número de dias: ", sc);
 					date.decrement(daysDe);
 					System.out.println("Data decrementada: " + date);
@@ -48,6 +63,8 @@ public class Exer1 {
 				case 0:
 					break;
 			}
+
+			System.out.println();
 		} while (input != 0);
 	}
 }
