@@ -1,5 +1,7 @@
 package aula06.exer1;
 
+import java.time.LocalDate;
+
 import aula05.exer1.Date;
 
 public class Aluno extends Pessoa {
@@ -18,8 +20,7 @@ public class Aluno extends Pessoa {
     public Aluno(String name, int cc, Date dataNasc) {
         super(name, cc, dataNasc);
         this.nMec = nMecCount++;
-        // TODO: dataNasc should be today's date
-        this.dataInsc = new Date(1, 1, 2000);
+        this.dataInsc = getCurrentDate();
     }
 
     public int getNMec() {
@@ -47,6 +48,11 @@ public class Aluno extends Pessoa {
 
         final Aluno other = (Aluno) obj;
         return this.nMec == other.nMec && this.dataInsc.equals(other.dataInsc) && super.equals(obj);
+    }
+
+    private Date getCurrentDate() {
+        LocalDate localDate = LocalDate.now();
+        return new Date(localDate.getDayOfMonth(), localDate.getMonthValue(), localDate.getYear());
     }
     
 }
