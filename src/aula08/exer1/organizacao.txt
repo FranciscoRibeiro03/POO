@@ -1,0 +1,32 @@
+Veículo
+- matrícula
+- marca
+- modelo
+- potência
+
+Automóvel extends Veículo
+- número do quadro
+
+Pesado extends Automóvel
+- peso
+
+Motociclo extends Veículo
+- tipo (desportivo ou estrada)
+
+Automóvel Ligeiro extends Automóvel
+- capacidade da bagageira
+
+Táxi extends Automóvel Ligeiro
+- nº licença
+
+Pesado Mercadorias extends Pesado
+- carga máxima
+
+Pesado Passageiros extends Pesado
+- número máximo de passageiros
+
+Empresa
+- nome
+- código postal
+- email
+- conj Viaturas, que inclui qualquer um dos anteriores
