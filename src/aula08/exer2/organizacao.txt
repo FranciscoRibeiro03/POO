@@ -1,0 +1,33 @@
+Alimento
+- proteínas (double)
+- calorias (double)
+- peso (double)
+
+Vegetariano (interface)
+
+Carne extends Alimento
+- variedade (vaca, porco, peru, frango, outra)
+
+Peixe extends Alimento
+- tipo (congelado, fresco)
+
+Cereal extends Alimento implements Vegetariano
+- nome (String)
+
+Legume extends Alimento implements Vegetariano
+- nome (String)
+
+Prato
+- nome (String)
+- composição (ArrayList<Alimento>)
+
+PratoVegetariano extends Prato implements Vegetariano
+- composição (ArrayList<Vegetariano>)
+
+PratoDieta extends Prato
+- limite máximo de calorias (double)
+
+Ementa
+- nome (String)
+- local (String)
+- lista de pratos (ArrayList<Prato>)
