@@ -4,25 +4,29 @@ import java.util.ArrayList;
 
 public class PratoVegetariano extends Prato implements Vegetariano {
 
-    private ArrayList<Vegetariano> alimentos;
+    private ArrayList<Alimento> ingredientes;
 
     public PratoVegetariano(String nome) {
         super(nome);
-        this.alimentos = new ArrayList<>();
+        this.ingredientes = new ArrayList<>();
     }
 
     @Override
-    public void setAlimentos(ArrayList<Vegetariano> alimentos) {
-        this.alimentos = alimentos;
+    public void setIngredientes(ArrayList<Alimento> alimentos) {
+        for (Alimento a : alimentos)
+            if (!(a instanceof Vegetariano)) throw new IllegalArgumentException("Prato não pode conter alimentos não vegetarianos");
+            
+        this.ingredientes = alimentos;
     }
 
-    public void addAlimento(Vegetariano alimento) {
-        this.alimentos.add(alimento);
+    public boolean addIngrediente(Alimento alimento) {
+        if (!(alimento instanceof Vegetariano)) return false;
+        return this.ingredientes.add(alimento);
     }
     
     @Override
     public String toString() {
-        return "PratoVegetariano{" + "nome=" + getNome() + ", alimentos=" + alimentos + '}';
+        return super.toString() + " - Prato Vegetariano";
     }
 
     @Override

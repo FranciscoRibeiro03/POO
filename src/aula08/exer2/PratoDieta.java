@@ -3,10 +3,15 @@ package aula08.exer2;
 public class PratoDieta extends Prato {
 
     private double limiteCalorias;
+    private double calorias;
 
-    public PratoDieta(String nome, double preco, double limiteCalorias) {
-        super(nome, preco);
+    public PratoDieta(String nome, double limiteCalorias) {
+        super(nome);
         this.limiteCalorias = limiteCalorias;
+    }
+
+    public double getCalorias() {
+        return calorias;
     }
 
     public double getLimiteCalorias() {
@@ -18,13 +23,12 @@ public class PratoDieta extends Prato {
     }
 
     @Override
-    public boolean addAlimento(Alimento alimento) {
-        double calorias = 0;
+    public boolean addIngrediente(Alimento alimento) {
         for (Alimento a : this.getAlimentos()) {
-            calorias += a.getCalorias();
+            this.calorias += a.getCalorias();
         }
-        if (this.getLimiteCalorias() <= calorias + alimento.getCalorias()) {
-            return super.addAlimento(alimento);
+        if (this.getLimiteCalorias() <= this.calorias + alimento.getCalorias()) {
+            return super.addIngrediente(alimento);
         } else {
             return false;
         }
@@ -32,7 +36,7 @@ public class PratoDieta extends Prato {
 
     @Override
     public String toString() {
-        return super.toString() + "Limite de calorias: " + limiteCalorias;
+        return super.toString() + " - Dieta (" + this.getCalorias() + " Calorias)";
     }
 
     @Override

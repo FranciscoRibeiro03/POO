@@ -1,17 +1,19 @@
 package aula08.exer2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Ementa {
-    
+
     private String nome;
     private String local;
-    private ArrayList<Prato> pratos;
+    private Map<DiaSemana, ArrayList<Prato>> ementa;
 
     public Ementa(String nome, String local) {
         this.nome = nome;
         this.local = local;
-        this.pratos = new ArrayList<Prato>();
+        this.ementa = new HashMap<>();
     }
 
     public String getNome() {
@@ -30,31 +32,52 @@ public class Ementa {
         this.local = local;
     }
 
-    public ArrayList<Prato> getPratos() {
-        return pratos;
+    public Map<DiaSemana, ArrayList<Prato>> getEmenta() {
+        return ementa;
     }
 
-    public void setPratos(ArrayList<Prato> pratos) {
-        this.pratos = pratos;
+    public void setEmenta(Map<DiaSemana, ArrayList<Prato>> ementa) {
+        this.ementa = ementa;
     }
 
-    public boolean addPrato(Prato prato) {
-        return this.pratos.add(prato);
+    public boolean addPrato(Prato prato, DiaSemana dia) {
+        if (ementa.containsKey(dia)) {
+            return ementa.get(dia).add(prato);
+        } else {
+            ArrayList<Prato> pratos = new ArrayList<>();
+            pratos.add(prato);
+            ementa.put(dia, pratos);
+            return true;
+        }
     }
 
     @Override
     public String toString() {
-        return "Ementa: " + this.getNome() + " - " + this.getLocal();
+        String result = "Ementa: " + this.getNome() + " - " + this.getLocal() + "\n\n";
+
+        for (DiaSemana dia : ementa.keySet()) {
+            for (Prato prato : ementa.get(dia)) {
+                result += prato + ", ";
+            }
+
+            result += dia + "\n";
+        }
+
+        return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
 
         Ementa other = (Ementa) obj;
-        return this.getNome().equals(other.getNome()) && this.getLocal().equals(other.getLocal()) && this.getPratos().equals(other.getPratos());
+        return this.getNome().equals(other.getNome()) && this.getLocal().equals(other.getLocal())
+                && this.getEmenta().equals(other.getEmenta());
     }
 
 }

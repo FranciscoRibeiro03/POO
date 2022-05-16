@@ -4,7 +4,7 @@ public class Cereal extends Alimento implements Vegetariano {
 
     private String nome;
 
-    public Cereal(double proteinas, double calorias, double peso, String nome) {
+    public Cereal(String nome, double proteinas, double calorias, double peso) {
         super(proteinas, calorias, peso);
         this.nome = nome;
     }
@@ -19,7 +19,7 @@ public class Cereal extends Alimento implements Vegetariano {
 
     @Override
     public String toString() {
-        return "Cereal{" + "nome=" + nome + '}';
+        return "Cereal " + this.getNome() + ", Proteinas " + this.getProteinas() + ", calorias " + this.getCalorias() + ", Peso " + this.getPeso();
     }
 
     @Override

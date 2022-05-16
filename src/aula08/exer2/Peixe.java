@@ -4,7 +4,7 @@ public class Peixe extends Alimento {
     
     private TipoPeixe tipoPeixe;
 
-    public Peixe(double proteinas, double calorias, double peso, TipoPeixe tipoPeixe) {
+    public Peixe(TipoPeixe tipoPeixe, double proteinas, double calorias, double peso) {
         super(proteinas, calorias, peso);
         this.tipoPeixe = tipoPeixe;
     }
@@ -19,7 +19,7 @@ public class Peixe extends Alimento {
 
     @Override
     public String toString() {
-        return "Peixe{" + "tipoPeixe=" + tipoPeixe + '}';
+        return "Peixe " + this.getTipoPeixe() + ", Proteinas " + this.getProteinas() + ", calorias " + this.getCalorias() + ", Peso " + this.getPeso();
     }
 
     @Override

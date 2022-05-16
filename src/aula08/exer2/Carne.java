@@ -4,7 +4,7 @@ public class Carne extends Alimento {
 
     private VariedadeCarne variedadeCarne;
 
-    public Carne(double proteinas, double calorias, double peso, VariedadeCarne variedadeCarne) {
+    public Carne(VariedadeCarne variedadeCarne, double proteinas, double calorias, double peso) {
         super(proteinas, calorias, peso);
         this.variedadeCarne = variedadeCarne;
     }
@@ -19,7 +19,7 @@ public class Carne extends Alimento {
 
     @Override
     public String toString() {
-        return "Carne{" + "variedadeCarne=" + variedadeCarne + '}';
+        return "Carne " + this.getVariedadeCarne() + ", Proteinas " + this.getProteinas() + ", calorias " + this.getCalorias() + ", Peso " + this.getPeso();
     }
 
     @Override

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Prato {
     
     private String nome;
-    private ArrayList<Alimento> alimentos;
+    private ArrayList<Alimento> ingredientes;
 
     public Prato(String nome) {
         this.nome = nome;
-        this.alimentos = new ArrayList<>();
+        this.ingredientes = new ArrayList<>();
     }
 
     public String getNome() {
@@ -21,20 +21,20 @@ public class Prato {
     }
 
     public ArrayList<Alimento> getAlimentos() {
-        return alimentos;
+        return ingredientes;
     }
 
-    public void setAlimentos(ArrayList<Alimento> alimentos) {
-        this.alimentos = alimentos;
+    public void setIngredientes(ArrayList<Alimento> alimentos) {
+        this.ingredientes = alimentos;
     }
 
-    public boolean addAlimento(Alimento alimento) {
-        return this.alimentos.add(alimento);
+    public boolean addIngrediente(Alimento alimento) {
+        return this.ingredientes.add(alimento);
     }
     
     @Override
     public String toString() {
-        return "Prato{" + "nome=" + nome + ", alimentos=" + alimentos + '}';
+        return "Prato" + " '" + this.getNome() + "', composto por " + this.ingredientes.size() + " Ingredientes";
     }
 
     @Override
