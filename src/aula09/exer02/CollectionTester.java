@@ -28,11 +28,11 @@ public class CollectionTester {
 			linkedLinkValues[i] = values;
 
 			Collection<Integer> hashSet = new HashSet<>();
-			values = checkPerformance(linkedLink, DIM[i]);
+			values = checkPerformance(hashSet, DIM[i]);
 			hashSetValues[i] = values;
 
 			Collection<Integer> treeSet = new TreeSet<>();
-			values = checkPerformance(linkedLink, DIM[i]);
+			values = checkPerformance(treeSet, DIM[i]);
 			treeSetValues[i] = values;
 		}
 
