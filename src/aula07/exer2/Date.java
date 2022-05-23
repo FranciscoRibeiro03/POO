@@ -47,5 +47,15 @@ public abstract class Date {
 	public String toString() {
 		return String.format("%04d-%02d-%02d", this.getYear(), this.getMonth(), this.getDay());
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + getDay();
+		result = prime * result + getMonth();
+		result = prime * result + getYear();
+		return result;
+	}
     
 }

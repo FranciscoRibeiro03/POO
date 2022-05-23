@@ -1,6 +1,6 @@
 package aula07.exer2;
 
-public class DateYMD extends Date {
+public class DateYMD extends Date implements Comparable<DateYMD> {
 	private int day;
 	private int month;
 	private int year;
