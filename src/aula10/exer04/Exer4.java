@@ -8,9 +8,11 @@ import java.io.IOException;
 public class Exer4 {
 	public static void main(String[] args) throws IOException {
 		ArrayList<String> words = readFile("./aula10/exer04/text.txt");
+		ArrayList<String> wordsWith2Chars = new ArrayList<>();
 		ArrayList<String> remove = new ArrayList<>();
 
 		for (String word : words) {
+			if (word.length() == 2) wordsWith2Chars.add(word);
 			if (word.endsWith("s")) System.out.println(word);
 		}
 

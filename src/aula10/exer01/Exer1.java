@@ -8,7 +8,7 @@ public class Exer1 {
 		t.add("branco", "Cor da neve");
 		t.add("azul", "Cor do céu");
 		t.add("leao", "Felino");
-		t.add("computador", "Eletrônico");
+		t.add("computador", "Eletrónico");
 		t.replace("leao", "Felino 2");
 		t.remove("computador");
 		t.add("telhado", "Parte da casa");
